@@ -1,8 +1,9 @@
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import { shade } from 'polished';
 
 interface FormProps {
   hasError: boolean;
+  loading: boolean;
 }
 
 export const Title = styled.h1`
@@ -12,6 +13,16 @@ export const Title = styled.h1`
   line-height: 56px;
 
   margin-top: 80px;
+`;
+
+const rotate = keyframes`
+  from {
+    transform: rotate(80deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 `;
 
 export const Form = styled.form<FormProps>`
@@ -50,6 +61,15 @@ export const Form = styled.form<FormProps>`
     color: #fff;
     font-weight: bold;
     transition: background-color 0.2s;
+
+    ${(props) =>
+      props.loading &&
+      css`
+        svg {
+          animation: ${rotate} 2s linear infinite;
+          color: #f8f8f2 !important;
+        }
+      `}
 
     &:hover {
       background: ${shade(0.2, '#04d361')};
