@@ -1,6 +1,5 @@
 import React, { useState, useEffect, FormEvent } from 'react';
-import { FiChevronRight } from 'react-icons/fi';
-import { FaSpinner } from 'react-icons/fa';
+import { FiChevronRight, FiLoader } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 
 import api from '../../services/api';
@@ -95,7 +94,7 @@ const Dashboard: React.FC = () => {
           placeholder="Enter the name of the repository"
         />
         <button type="submit">
-          {loading ? <FaSpinner size={20} /> : 'Search'}
+          {loading ? <FiLoader size={20} /> : 'Search'}
         </button>
       </Form>
 
