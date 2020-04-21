@@ -93,7 +93,7 @@ export const Repositories = styled.div`
 
     svg {
       margin-left: auto;
-      color: #9580ff;
+      color: #7159c1;
     }
   }
 `;
